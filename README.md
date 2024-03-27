@@ -82,24 +82,25 @@ To deploy this package for large data submitted to schedulers on HPCs or VMs, pl
 ## Example outs
 - D2S provides a framework for leveraging and optimising pre-trained foundational large language models trained on large data corpuses of biomedical, drug, ontological, and chemical data. It seeks to forge an integrated manifold of these modalities for efficient mapping and harmonisation of drug-cell targetting data. 
 
-![Alt text](/Resources/D2S_structure.png")
+![Alt text](/Resources/D2S_structure.png?raw=true "D2S_structure")
 
 - D2S provides a utility to customise semantic feature extractions from corresponding foundational model layers to create seperate syntactic and semantic embeddings
-![Alt text](/Resources/D2S_semantic_feature_extraction.png")
+![Alt text](/Resources/D2S_semantic_feature_extraction.png?raw=true "D2S_semantic_feature_extraction")
 
 - D2S outputs a series of attention-weighted graph manifolds which are clustered and semantically decoded for core mechanistic, structural, and targetting effects
-![Alt text](/Resources/D2S_mechanistic_semantic_clusters.png")
+![Alt text](/Resources/D2S_mechanistic_semantic_clusters.png?raw=true "D2S_mechanistic_semantic_clusters")
 
 - D2S allows users to identify condition-specific mechanistic target perturbations and highlight condition-specifc perturbed gene programs
-![Alt text](/Resources/D2S_multi_condition_perturbation_targetting.png")
-![Alt text](/Resources/D2S_condition_specific_drugs")
+![Alt text](/Resources/D2S_multi_condition_perturbation_targetting.png?raw=true "D2S_multi_condition_perturbation_targetting")
+
+![](/Resources/D2S_condition_specific_drugs.png?raw=true "D2S_condition_specific_drugs")
 
 
 - D2S additionally allows cell-state specific targetting of perturbed gene-expression programs
-![Alt text](/Resources/D2S_cell_state_specific_targetted_drug_clusters.png")
+![](/Resources/D2S_cell_state_specific_targetted_drug_clusters.png?raw=true "D2S_cell_state_specific_targetted_drug_cluster")
 
 - D2S allows users to quickly quantify drug mechanistic and structural overlaps for quick identification of novel target mechanisms
-![Alt text](/Resources/D2S_drug_target_mechanistic_overlap_hull")
+![](/Resources/D2S_drug_target_mechanistic_overlap_hull.png?raw=true "D2S_drug_target_mechanistic_overlap_hull")
 
 
 ## Workflow

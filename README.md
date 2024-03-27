@@ -1,7 +1,7 @@
 <img src="/Resources/D2S_logo.webp?raw=true" alt="logo" width="150" height="150">
 
 # Drug2State
-Drug2State is a computational ensemble under development for drug target discovery and repurposing by integrating multi-omic data with embeddings from foundation models like BioBERT and ChemBERTa, leveraging a Graph Attention Convolutional Network (GACN) for nuanced mechanistic clustering of drugs.
+Drug2State is a computational ensemble under development for drug target discovery and repurposing by integrating multi-omic data with embeddings from foundation models like BioBERT and ChemBERTa, leveraging a Graph Attention Convolutional Network (GACN) for nuanced mechanistic and structural targetting of drug clusters.
 
 ## Installation
 To install directly from github run below in command line (Not implemented)

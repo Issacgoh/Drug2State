@@ -40,6 +40,52 @@ Issac Goh, (ig7@sanger.ac.uk)
 ## Method Overview: 
 Drug2State is crafted to tackle the intricate task of unraveling drug mechanisms amid the complexity of extensive biological datasets. By amalgamating drug-gene interaction data with state-of-the-art embeddings, the method offers a comprehensive view of drug actions, integrating molecular structures and semantic, causally-inferred descriptions of drug mechanisms. The employment of GACN facilitates the synthesis of information across different data modalities, with attention mechanisms strategically highlighting crucial interactions. This approach is set to provide profound insights into drug repurposing opportunities and the unveiling of new drug targets, especially in the realm of personalized medicine and targeted therapies.
 
+### Rationale for Creating Joint Embeddings
+
+1. **Enhanced Interpretability**: By mapping data from different sources into a shared embedding space, it becomes easier to understand how various aspects of the data relate to one another, facilitating clearer interpretations of how drugs influence cellular mechanisms.
+
+2. **Improved Prediction Accuracy**: Integrating embeddings from different methodologies can leverage complementary information, potentially leading to more accurate predictions of drug efficacy and side effects.
+
+3. **Identification of Novel Relationships**: Joint embeddings can reveal new relationships between drugs and cellular responses that are not apparent when analyzing datasets in isolation.
+
+4. **Robustness to Data Sparsity and Noise**: Combining multiple data sources can help mitigate issues related to data sparsity and noise in individual datasets, as the integration process can emphasize shared signal over noise.
+
+### How MOFA Achieves Integration
+
+MOFA (Multi-Omics Factor Analysis) is a statistical framework designed to integrate and decompose multiple datasets into a set of latent factors that capture the underlying sources of variability. The process by which MOFA+ achieves this can be broken down into several steps:
+
+1. **Input Data**: MOFA+ accepts multiple input data matrices, each corresponding to a different type of data or feature set. In your case, these matrices might represent embeddings from language models and drug interaction tests.
+
+2. **Factorization**: MOFA+ employs a group factor analysis approach to decompose each dataset into a set of latent factors and feature loadings:
+$$
+\mathbf{X}_k = \mathbf{Z} \mathbf{W}_k^T + \mathbf{E}_k
+$$
+
+Where:
+- $( \mathbf{X}_k )$ represents the data matrix for the $( k )$-th data type.
+- $( \mathbf{Z} )$ is the matrix of latent factors common across all data types.
+- $( \mathbf{W}_k )$ is the loading matrix specific to the $( k )$-th data type, indicating how much each feature contributes to each factor.
+- $( \mathbf{E}_k )$ is the residual noise matrix for the $( k )$-th data type.
+
+This formulation allows for the extraction and integration of the most significant modes of variation across different types of data, yielding a joint embedding space that reflects shared and unique aspects of each dataset.
+3. **Variational Inference**: MOFA+ uses a Bayesian framework with variational inference to estimate the factors and loadings. This approach allows the model to handle different types of data (continuous, binary, count, etc.) and to incorporate prior knowledge.
+
+4. **Regularization**: The model includes options for sparsity-inducing priors on the loadings, which encourages each factor to use only a subset of the features from each data type, simplifying interpretation and enhancing model robustness.
+
+5. **Output**: The output of MOFA+ is a set of factors that describe the main modes of variation across the datasets. These factors constitute the joint embedding space where relationships across data types can be explored.
+
+### Implementation in the Context of Drug Discovery
+
+In the context of drug discovery, MOFA+ can integrate drug response data, genetic data, and embeddings derived from text data about drug mechanisms. This integrated approach provides a comprehensive view that can enhance the understanding of drug effects at the cellular level, potentially leading to discoveries related to drug mechanisms, interactions, and effects on disease pathways.
+
+The joint embedding space created by MOFA+ allows for clustering drugs based on their mechanisms and predicted effects, supporting the identification of novel drug candidates and therapeutic opportunities. The enhanced interpretability and robustness of the model also contribute to more accurate predictions and insights into complex biological systems.
+
+By leveraging the strengths of specialized tools at each stage—from feature extraction using advanced NLP models to integration and analysis using MOFA+—your pipeline creates a powerful platform for advancing drug discovery and understanding complex biomedical relationships.
+
+### Summary
+
+The integration process via MOFA+ allows for a robust and interpretable model that can combine diverse data types into a coherent framework, enhancing drug discovery and research by providing a deeper understanding of drug mechanisms. The formulaic representation of MOFA+ captures the essence of how data from different sources are synthesized to uncover latent structures, making it a powerful tool in multi-omics and drug prediction studies.
+
 ## Potential and Future Directions:
 Drug2State's potential lies in its innovative use of foundation models and extensive chemical databases such as CHEMBERTA, thus providing a vast repository of information for the analysis of drug mechanisms. As the development progresses, future versions are expected to integrate targeted cancer RISPR screen data from DePMap, further enriching the drug discovery landscape with essential genomic insights. This future development is anticipated to enhance Drug2State's ability to identify and characterize drugs with specific mechanistic actions, thus supporting targeted treatments for cancer and other complex diseases.
 
